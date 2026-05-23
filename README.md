@@ -40,7 +40,7 @@ Your own photos and videos live in:
 
 Drop new files in `temp/` during editing, then copy into `public/` (or upload via `/admin` → Media). The `temp/` folder is not deployed (gitignored).
 
-**Reel export (not shown on the website):** from `temp/videos/clip-3.mp4`, run `npm run build:reel`. Output is saved to `public/media/reels/reel-clip-3.mp4` for download or social upload only.
+**Reel export (not on the website):** from `temp/videos/clip-3.mp4`, run `npm run build:reel`. Output is saved to `temp/reels/reel-clip-3.mp4` (local/social use only; not deployed).
 
 ## Project structure
 

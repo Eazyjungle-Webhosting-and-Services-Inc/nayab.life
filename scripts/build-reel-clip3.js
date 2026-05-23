@@ -10,7 +10,7 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const SRC = path.join(ROOT, 'temp', 'videos', 'clip-3.mp4');
 const WORK = path.join(ROOT, 'temp', 'reel-build');
-const OUTDIR = path.join(ROOT, 'public', 'media', 'reels');
+const OUTDIR = path.join(ROOT, 'temp', 'reels');
 const FONT = '../../scripts/fonts/arial.ttf';
 const FONTB = '../../scripts/fonts/arialbd.ttf';
 
