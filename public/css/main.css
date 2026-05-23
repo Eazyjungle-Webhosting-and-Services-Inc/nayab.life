@@ -296,11 +296,13 @@ a:hover {
 .portrait-frame {
   display: inline-block;
   max-width: 100%;
-  padding: 0;
-  border: 1px solid rgba(26, 107, 92, 0.35);
-  border-radius: 10px;
-  background: #fff;
-  box-shadow: 0 2px 12px rgba(20, 40, 32, 0.08);
+  padding: 6px;
+  border: 2px solid rgba(26, 107, 92, 0.22);
+  border-radius: 20px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.85) 0%, rgba(232, 245, 240, 0.75) 100%);
+  box-shadow:
+    0 4px 24px rgba(26, 107, 92, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.6) inset;
   line-height: 0;
 }
 
@@ -309,7 +311,7 @@ a:hover {
   width: auto;
   max-width: 100%;
   height: auto;
-  border-radius: 9px;
+  border-radius: 14px;
   image-rendering: auto;
 }
 
