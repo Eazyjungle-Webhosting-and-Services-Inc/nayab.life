@@ -1,8 +1,9 @@
 {
-  "version": "4",
+  "version": "5",
   "heroPortrait": "/images/custom/nayab-intro-banner.jpeg",
   "heroPortraitFallback": "https://voiceawareness.ca/wp-content/uploads/2025/12/Untitled-design-12-1.webp",
   "nayabIntroBanner": "/images/custom/nayab-intro-banner.jpeg",
+  "nayabAbout": "/images/custom/nayab-about.jpeg",
   "nayabPromoVertical": "/images/custom/nayab-promo-vertical.jpeg",
   "brandingIcon": "/images/custom/branding-icon.jpeg",
   "healingGrowthIcon": "/images/custom/healing-growth-icon.jpeg",
@@ -15,12 +16,13 @@
   "logo": "/images/custom/branding-icon.jpeg",
   "logoFallback": "/images/logo-voice.webp",
   "defaultPost": "/images/custom/nayab-intro-banner.jpeg",
-  "aboutBanner": "/images/custom/nayab-intro-banner.jpeg",
+  "aboutBanner": "/images/custom/nayab-about.jpeg",
   "servicesBanner": "/images/therapy-session.webp",
   "approachBanner": "/images/custom/healing-growth-icon.jpeg",
   "videoIntro1": "/media/videos/intro-clip-1.mp4",
   "videoIntro2": "/media/videos/intro-clip-2.mp4",
-  "videoPoster": "/images/custom/nayab-intro-banner.jpeg",
-  "videoIntro1Title": "Introduction — Voice Awareness & psychotherapy",
-  "videoIntro2Title": "A message from Nayab Tahir"
+  "videoPoster1": "/media/posters/intro-clip-1-poster.jpg",
+  "videoPoster2": "/media/posters/intro-clip-2-poster.jpg",
+  "videoIntro1Title": "Let the voices be heard - by Nayab Tahir",
+  "videoIntro2Title": "Get into Survival mode with good lighting - by Nayab Tahir"
 }
