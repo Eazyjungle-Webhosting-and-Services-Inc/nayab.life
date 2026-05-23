@@ -5,16 +5,28 @@
 </head>
 <body>
   <%- include('partials/header') %>
-  <section class="page-hero">
-    <div class="container">
-      <p class="eyebrow">Services</p>
-      <h1>Psychotherapy &amp; counseling for adults</h1>
-      <p class="lead">Evidence-based, trauma-informed care tailored to your unique situation and goals.</p>
+  <%- include('partials/page-banner', {
+    image: assets.servicesBanner,
+    eyebrow: 'Services',
+    title: 'Psychotherapy & counseling for adults',
+    lead: 'Evidence-based, trauma-informed care tailored to your unique situation and goals.'
+  }) %>
+  <section class="section">
+    <div class="container prose">
+      <%- page.html || '' %>
     </div>
   </section>
-  <section class="section">
-    <div class="container prose narrow">
-      <%- page.html || '' %>
+  <section class="section gallery-row">
+    <div class="container gallery-three">
+      <figure>
+        <%- include('partials/img', { src: assets.mindfulness, fallback: assets.mindfulnessFallback, alt: 'Mindfulness', className: 'gallery-img' }) %>
+      </figure>
+      <figure>
+        <%- include('partials/img', { src: assets.therapySession, fallback: assets.therapySessionFallback, alt: 'Therapy session', className: 'gallery-img' }) %>
+      </figure>
+      <figure>
+        <%- include('partials/img', { src: assets.calmNature, fallback: assets.calmNatureFallback, alt: 'Calm reflection', className: 'gallery-img' }) %>
+      </figure>
     </div>
   </section>
   <section class="section alt">

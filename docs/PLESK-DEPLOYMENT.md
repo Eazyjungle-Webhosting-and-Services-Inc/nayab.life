@@ -55,27 +55,38 @@ Ensure the web user can write to:
 
 Typical permissions: `755` for folders, `644` for files; `uploads` may need `775` if uploads fail.
 
-## 6. Start / restart the app
+## 6. Static files (CSS & images)
+
+The site serves `/css`, `/js`, and `/images` from the `public/` folder via Node.js.
+
+After deploying, confirm these URLs load (not 404/503):
+
+- `https://nayab.life/css/main.css?v=3`
+- `https://nayab.life/images/nayab-hero.webp?v=3`
+
+If static files fail, ensure the full repo (including `public/images/*.webp`) is deployed and restart the Node.js app. Images also have CDN fallbacks to voiceawareness.ca if local files are missing.
+
+## 7. Start / restart the app
 
 Use **Restart App** in the Node.js panel after each deploy or env change.
 
-## 7. SSL
+## 8. SSL
 
 Enable **Let's Encrypt** SSL for `nayab.life` and `www.nayab.life` in Plesk.
 
-## 8. Reverse proxy
+## 9. Reverse proxy
 
 Plesk usually proxies HTTPS to the Node.js port automatically. If the site does not load:
 
 - Confirm Node.js is enabled for the domain
 - Check application logs in Plesk → Node.js → Log files
 
-## 9. Admin access
+## 10. Admin access
 
 - URL: `https://nayab.life/admin`
 - Default login: see root `README.md` (change via env vars in production)
 
-## 10. Backups
+## 11. Backups
 
 Back up regularly:
 

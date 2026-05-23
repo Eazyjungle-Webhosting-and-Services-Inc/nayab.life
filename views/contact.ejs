@@ -5,13 +5,12 @@
 </head>
 <body>
   <%- include('partials/header') %>
-  <section class="page-hero">
-    <div class="container">
-      <p class="eyebrow">Contact</p>
-      <h1>Let's connect</h1>
-      <p class="lead">Call toll-free or send a message. Virtual psychotherapy available across Ontario.</p>
-    </div>
-  </section>
+  <%- include('partials/page-banner', {
+    image: assets.calmNature,
+    eyebrow: 'Contact',
+    title: "Let's connect",
+    lead: 'Call toll-free or send a message. Virtual psychotherapy available across Ontario.'
+  }) %>
   <section class="section">
     <div class="container content-grid">
       <div>
@@ -37,6 +36,14 @@
         </form>
       </div>
       <aside class="sidebar">
+        <div class="sidebar-card sidebar-photo">
+          <%- include('partials/img', {
+            src: assets.heroPortrait,
+            fallback: assets.heroPortraitFallback,
+            alt: 'Nayab Tahir',
+            className: 'sidebar-img'
+          }) %>
+        </div>
         <div class="sidebar-card">
           <h3>Direct</h3>
           <p><a href="tel:18008570609"><%= site.phone %></a></p>

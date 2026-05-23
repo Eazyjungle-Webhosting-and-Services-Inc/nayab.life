@@ -5,16 +5,28 @@
 </head>
 <body>
   <%- include('partials/header') %>
-  <section class="page-hero">
-    <div class="container">
-      <p class="eyebrow">Therapeutic approach</p>
-      <h1>Holistic, client-centred care</h1>
-      <p class="lead">No one-size-fits-all — modalities chosen with your comfort and goals at the centre.</p>
-    </div>
-  </section>
+  <%- include('partials/page-banner', {
+    image: assets.approachBanner,
+    eyebrow: 'Therapeutic approach',
+    title: 'Holistic, client-centred care',
+    lead: 'No one-size-fits-all — modalities chosen with your comfort and goals at the centre.'
+  }) %>
   <section class="section">
-    <div class="container prose">
-      <%- page.html || '' %>
+    <div class="container content-grid">
+      <div class="prose content-main">
+        <%- page.html || '' %>
+      </div>
+      <aside>
+        <div class="sidebar-card accent-card">
+          <%- include('partials/img', {
+            src: assets.mindfulness,
+            fallback: assets.mindfulnessFallback,
+            alt: 'Mindful healing',
+            className: 'sidebar-img'
+          }) %>
+          <p><em>“The path to light and purpose is within your reach.”</em></p>
+        </div>
+      </aside>
     </div>
   </section>
   <%- include('partials/footer') %>

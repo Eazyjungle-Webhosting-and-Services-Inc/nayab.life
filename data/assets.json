@@ -1,0 +1,17 @@
+{
+  "version": "3",
+  "heroPortrait": "/images/nayab-hero.webp",
+  "heroPortraitFallback": "https://voiceawareness.ca/wp-content/uploads/2025/12/Untitled-design-12-1.webp",
+  "therapySession": "/images/therapy-session.webp",
+  "therapySessionFallback": "https://voiceawareness.ca/wp-content/uploads/2025/12/candid-shot-young-man-glasses-talking-about-his-problems-psychological-therapy-session-sitting-coach-while-mature-female-psychologist-with-copybook-listening-him-making-notes-scaled-1-1.webp",
+  "mindfulness": "/images/mindfulness.webp",
+  "mindfulnessFallback": "https://voiceawareness.ca/wp-content/uploads/2025/12/1-1-1.webp",
+  "calmNature": "/images/calm-nature.webp",
+  "calmNatureFallback": "https://voiceawareness.ca/wp-content/uploads/2025/12/portrait-woman-customer-service-worker.webp",
+  "logo": "/images/logo-voice.webp",
+  "logoFallback": "https://voiceawareness.ca/wp-content/uploads/2024/07/VOICE-AWARE-2-1-2-e1722374539253.webp",
+  "defaultPost": "/images/mindfulness.webp",
+  "aboutBanner": "/images/nayab-hero.webp",
+  "servicesBanner": "/images/therapy-session.webp",
+  "approachBanner": "/images/calm-nature.webp"
+}

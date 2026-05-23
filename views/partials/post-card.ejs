@@ -1,9 +1,14 @@
+<% const cardImg = post.featuredImage || assets.defaultPost; %>
 <article class="post-card">
-  <% if (post.featuredImage) { %>
   <a href="/<%= type %>/<%= post.slug %>" class="post-card-image">
-    <img src="<%= post.featuredImage %>" alt="" loading="lazy" />
+    <%- include('img', {
+      src: cardImg,
+      fallback: assets.mindfulnessFallback,
+      alt: post.title,
+      className: 'post-card-img'
+    }) %>
+    <span class="post-card-overlay"></span>
   </a>
-  <% } %>
   <div class="post-card-body">
     <time datetime="<%= post.publishedAt || post.createdAt %>">
       <%= new Date(post.publishedAt || post.createdAt).toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' }) %>

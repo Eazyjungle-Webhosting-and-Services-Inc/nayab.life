@@ -8,6 +8,11 @@
 
   <section class="hero">
     <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-shapes" aria-hidden="true">
+      <span class="shape shape-1"></span>
+      <span class="shape shape-2"></span>
+      <span class="shape shape-3"></span>
+    </div>
     <div class="container hero-grid">
       <div class="hero-content">
         <p class="eyebrow">Voice Awareness Psychotherapy Services Inc.</p>
@@ -18,12 +23,25 @@
         </p>
         <div class="hero-actions">
           <a href="<%= site.janeApp %>" class="btn btn-primary" target="_blank" rel="noopener">Book a consultation</a>
-          <a href="/about" class="btn btn-outline">Meet Nayab</a>
+          <a href="/about" class="btn btn-glass">Meet Nayab</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>MACP</strong><span>Counselling Psychology</span></div>
+          <div><strong>5+</strong><span>Countries lived</span></div>
+          <div><strong>IFS</strong><span>Certified approaches</span></div>
         </div>
       </div>
       <div class="hero-visual">
         <div class="portrait-frame">
-          <img src="/images/nayab-portrait.svg" alt="Illustration representing Nayab Tahir, psychotherapist" width="420" height="520" />
+          <%- include('partials/img', {
+            src: assets.heroPortrait,
+            fallback: assets.heroPortraitFallback,
+            alt: 'Nayab Tahir, Registered Psychotherapist',
+            className: 'hero-portrait',
+            loading: 'eager',
+            width: 480,
+            height: 600
+          }) %>
         </div>
         <div class="hero-badge">
           <span>IFS · CBT · DBT</span>
@@ -33,49 +51,111 @@
     </div>
   </section>
 
+  <section class="visual-strip" aria-label="Therapy imagery">
+    <div class="visual-strip-track">
+      <figure>
+        <%- include('partials/img', { src: assets.therapySession, fallback: assets.therapySessionFallback, alt: 'Therapy session', className: 'strip-img' }) %>
+        <figcaption>Collaborative therapy</figcaption>
+      </figure>
+      <figure>
+        <%- include('partials/img', { src: assets.mindfulness, fallback: assets.mindfulnessFallback, alt: 'Mindfulness and calm', className: 'strip-img' }) %>
+        <figcaption>Mindfulness &amp; balance</figcaption>
+      </figure>
+      <figure>
+        <%- include('partials/img', { src: assets.calmNature, fallback: assets.calmNatureFallback, alt: 'Peaceful reflection', className: 'strip-img' }) %>
+        <figcaption>Emotional wellness</figcaption>
+      </figure>
+    </div>
+  </section>
+
   <section class="section intro-strip">
-    <div class="container narrow">
+    <div class="container intro-grid">
       <blockquote>
         Therapy is not about quick fixes — it is a collaborative process focused on self-awareness,
         coping skills, and long-term emotional well-being.
       </blockquote>
-      <p>
-        Through <a href="<%= site.companyUrl %>">Voice Awareness</a>, Nayab offers evidence-based,
-        trauma-informed psychotherapy for adults navigating anxiety, trauma, relationship challenges,
-        and life transitions — now with a dedicated space for reflection, news, and professional insight at nayab.life.
-      </p>
+      <div>
+        <p>
+          Through <a href="<%= site.companyUrl %>">Voice Awareness</a>, Nayab offers evidence-based,
+          trauma-informed psychotherapy for adults navigating anxiety, trauma, relationship challenges,
+          and life transitions.
+        </p>
+        <a href="/approach" class="btn btn-outline">Explore my approach</a>
+      </div>
     </div>
   </section>
 
   <section class="section services-preview">
     <div class="container">
       <header class="section-header">
-        <h2>Areas of focus</h2>
-        <p>Personalized care grounded in clinical expertise and cross-cultural understanding.</p>
+        <div>
+          <h2>Areas of focus</h2>
+          <p>Personalized care grounded in clinical expertise and cross-cultural understanding.</p>
+        </div>
       </header>
-      <div class="card-grid four">
-        <article class="icon-card">
-          <div class="icon" aria-hidden="true">◐</div>
-          <h3>Stress Management</h3>
-          <p>Personalized sessions to alleviate pressures and restore purpose and balance.</p>
+      <div class="card-grid four service-cards">
+        <article class="service-card" style="--card-accent: #1a6b5c">
+          <div class="service-card-img">
+            <%- include('partials/img', { src: assets.mindfulness, fallback: assets.mindfulnessFallback, alt: '', className: '' }) %>
+          </div>
+          <div class="service-card-body">
+            <h3>Stress Management</h3>
+            <p>Personalized sessions to alleviate pressures and restore purpose and balance.</p>
+          </div>
         </article>
-        <article class="icon-card">
-          <div class="icon" aria-hidden="true">♡</div>
-          <h3>Relationship Trauma</h3>
-          <p>Process complex experiences and rebuild safety in individual or couples work.</p>
+        <article class="service-card" style="--card-accent: #6b4a8a">
+          <div class="service-card-img">
+            <%- include('partials/img', { src: assets.therapySession, fallback: assets.therapySessionFallback, alt: '', className: '' }) %>
+          </div>
+          <div class="service-card-body">
+            <h3>Relationship Trauma</h3>
+            <p>Process complex experiences and rebuild safety in individual or couples work.</p>
+          </div>
         </article>
-        <article class="icon-card">
-          <div class="icon" aria-hidden="true">◎</div>
-          <h3>Emotional Stability</h3>
-          <p>Learn regulation skills when emotions feel intensely high or low.</p>
+        <article class="service-card" style="--card-accent: #2a6b8a">
+          <div class="service-card-img">
+            <%- include('partials/img', { src: assets.calmNature, fallback: assets.calmNatureFallback, alt: '', className: '' }) %>
+          </div>
+          <div class="service-card-body">
+            <h3>Emotional Stability</h3>
+            <p>Learn regulation skills when emotions feel intensely high or low.</p>
+          </div>
         </article>
-        <article class="icon-card">
-          <div class="icon" aria-hidden="true">✦</div>
-          <h3>Personal Growth</h3>
-          <p>Identify roadblocks and nurture self-awareness for lasting change.</p>
+        <article class="service-card" style="--card-accent: #8a6b2a">
+          <div class="service-card-img">
+            <%- include('partials/img', { src: assets.heroPortrait, fallback: assets.heroPortraitFallback, alt: '', className: '' }) %>
+          </div>
+          <div class="service-card-body">
+            <h3>Personal Growth</h3>
+            <p>Identify roadblocks and nurture self-awareness for lasting change.</p>
+          </div>
         </article>
       </div>
       <p class="section-cta"><a href="/services" class="btn btn-text">View all services →</a></p>
+    </div>
+  </section>
+
+  <section class="section about-teaser">
+    <div class="container about-teaser-grid">
+      <div class="about-teaser-img">
+        <%- include('partials/img', {
+          src: assets.heroPortrait,
+          fallback: assets.heroPortraitFallback,
+          alt: 'Nayab Tahir',
+          className: 'rounded-photo'
+        }) %>
+      </div>
+      <div>
+        <p class="eyebrow">About Nayab</p>
+        <h2>Hello, I'm Nayab</h2>
+        <p>Registered Psychotherapist with a Master's in Counselling Psychology (MACP), cross-cultural lived experience across five countries, and a passion for breaking mental health stigma.</p>
+        <ul class="check-list">
+          <li>Trauma-informed &amp; evidence-based care</li>
+          <li>Virtual sessions across Ontario</li>
+          <li>Collaborative, client-led therapy</li>
+        </ul>
+        <a href="/about" class="btn btn-primary">Read my story</a>
+      </div>
     </div>
   </section>
 
@@ -112,6 +192,7 @@
   <% } %>
 
   <section class="section cta-band">
+    <div class="cta-band-bg" aria-hidden="true"></div>
     <div class="container cta-inner">
       <div>
         <h2>Ready to take the next step?</h2>
@@ -119,7 +200,7 @@
       </div>
       <div class="cta-actions">
         <a href="<%= site.janeApp %>" class="btn btn-primary" target="_blank" rel="noopener">Jane App</a>
-        <a href="/contact" class="btn btn-outline-light">Contact</a>
+        <a href="/contact" class="btn btn-glass">Contact</a>
       </div>
     </div>
   </section>

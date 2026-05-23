@@ -6,6 +6,8 @@ const session = require('express-session');
 
 const publicRoutes = require('./routes/public');
 const adminRoutes = require('./routes/admin');
+const { getAssets, asset } = require('./lib/assets');
+const { mountPublicStatic } = require('./lib/static-files');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -28,11 +30,14 @@ app.use(
   })
 );
 
-app.use(express.static(path.join(__dirname, 'public')));
+const publicDir = path.join(__dirname, 'public');
+mountPublicStatic(app, publicDir);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use((req, res, next) => {
   res.locals.currentPath = req.path;
+  res.locals.asset = asset;
+  res.locals.assets = getAssets();
   next();
 });
 
@@ -40,14 +45,22 @@ app.use('/', publicRoutes);
 app.use('/admin', adminRoutes);
 
 app.use((req, res) => {
-  res.status(404).render('404', { title: 'Page Not Found' });
+  const content = require('./lib/content');
+  res.status(404).render('404', {
+    title: 'Page Not Found',
+    site: content.getSite(),
+    assets: getAssets(),
+  });
 });
 
 app.use((err, req, res, _next) => {
   console.error(err);
+  const content = require('./lib/content');
   res.status(500).render('error', {
     title: 'Something went wrong',
     message: process.env.NODE_ENV === 'development' ? err.message : 'Please try again later.',
+    site: content.getSite(),
+    assets: getAssets(),
   });
 });
 

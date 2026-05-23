@@ -5,12 +5,12 @@
 </head>
 <body>
   <%- include('partials/header') %>
-  <section class="page-hero">
-    <div class="container">
-      <p class="eyebrow"><%= typeLabel %></p>
-      <h1><%= title %></h1>
-    </div>
-  </section>
+  <%- include('partials/page-banner', {
+    image: assets.mindfulness,
+    eyebrow: typeLabel,
+    title: title,
+    lead: 'Insights and updates from Nayab Tahir on psychotherapy and mental wellness.'
+  }) %>
   <section class="section">
     <div class="container">
       <% if (!posts.length) { %>

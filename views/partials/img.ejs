@@ -1,0 +1,13 @@
+<%#
+  locals: src (required), fallback (optional CDN url), alt, className, loading, width, height
+%>
+<% var imgSrc = src; if (imgSrc && !imgSrc.startsWith('http') && imgSrc.indexOf('?v=') === -1) { imgSrc = asset(imgSrc); } %>
+<img
+  src="<%= imgSrc %>"
+  alt="<%= typeof alt !== 'undefined' ? alt : '' %>"
+  <% if (typeof className !== 'undefined') { %>class="<%= className %>"<% } %>
+  <% if (typeof width !== 'undefined') { %>width="<%= width %>"<% } %>
+  <% if (typeof height !== 'undefined') { %>height="<%= height %>"<% } %>
+  loading="<%= typeof loading !== 'undefined' ? loading : 'lazy' %>"
+  <% if (typeof fallback !== 'undefined' && fallback) { %>onerror="this.onerror=null;this.src='<%= fallback %>'"<% } %>
+/>

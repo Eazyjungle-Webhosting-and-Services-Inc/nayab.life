@@ -1,0 +1,17 @@
+<section class="page-banner">
+  <div class="page-banner-media">
+    <%- include('img', {
+      src: image,
+      fallback: assets.mindfulnessFallback,
+      alt: '',
+      className: 'page-banner-img',
+      loading: 'eager'
+    }) %>
+    <div class="page-banner-scrim" aria-hidden="true"></div>
+  </div>
+  <div class="container page-banner-content">
+    <% if (typeof eyebrow !== 'undefined') { %><p class="eyebrow"><%= eyebrow %></p><% } %>
+    <h1><%= title %></h1>
+    <% if (typeof lead !== 'undefined') { %><p class="lead"><%= lead %></p><% } %>
+  </div>
+</section>

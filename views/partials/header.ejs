@@ -1,7 +1,7 @@
 <header class="site-header">
   <div class="container header-inner">
     <a href="/" class="logo" aria-label="Nayab Tahir home">
-      <span class="logo-mark" aria-hidden="true"></span>
+      <%- include('img', { src: assets.logo, fallback: assets.logoFallback, alt: 'Voice Awareness', className: 'logo-img', loading: 'eager' }) %>
       <span class="logo-text">
         <strong>Nayab Tahir</strong>
         <small>Psychotherapy &amp; Insight</small>
