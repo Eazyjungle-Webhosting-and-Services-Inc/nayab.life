@@ -24,6 +24,7 @@
         <div class="hero-actions">
           <a href="<%= site.janeApp %>" class="btn btn-primary" target="_blank" rel="noopener">Book a consultation</a>
           <a href="/about" class="btn btn-glass">Meet Nayab</a>
+          <a href="#videos" class="btn btn-outline">Watch videos</a>
         </div>
         <div class="hero-stats">
           <div><strong>MACP</strong><span>Counselling Psychology</span></div>
@@ -34,7 +35,7 @@
       <div class="hero-visual">
         <div class="portrait-frame">
           <%- include('partials/img', {
-            src: assets.heroPortrait,
+            src: assets.nayabIntroBanner,
             fallback: assets.heroPortraitFallback,
             alt: 'Nayab Tahir, Registered Psychotherapist',
             className: 'hero-portrait',
@@ -67,6 +68,10 @@
       </figure>
     </div>
   </section>
+
+  <%- include('partials/promo-gallery') %>
+
+  <%- include('partials/video-section', { showCta: true }) %>
 
   <section class="section intro-strip">
     <div class="container intro-grid">
@@ -123,7 +128,7 @@
         </article>
         <article class="service-card" style="--card-accent: #8a6b2a">
           <div class="service-card-img">
-            <%- include('partials/img', { src: assets.heroPortrait, fallback: assets.heroPortraitFallback, alt: '', className: '' }) %>
+            <%- include('partials/img', { src: assets.nayabPromoVertical, fallback: assets.nayabIntroBanner, alt: '', className: '' }) %>
           </div>
           <div class="service-card-body">
             <h3>Personal Growth</h3>
@@ -139,7 +144,7 @@
     <div class="container about-teaser-grid">
       <div class="about-teaser-img">
         <%- include('partials/img', {
-          src: assets.heroPortrait,
+          src: assets.nayabIntroBanner,
           fallback: assets.heroPortraitFallback,
           alt: 'Nayab Tahir',
           className: 'rounded-photo'

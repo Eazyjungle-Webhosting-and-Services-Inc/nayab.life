@@ -1,0 +1,44 @@
+<section class="section video-section" id="videos">
+  <div class="container">
+    <header class="section-header center-header">
+      <p class="eyebrow">Watch &amp; listen</p>
+      <h2><%= typeof heading !== 'undefined' ? heading : 'Meet Nayab' %></h2>
+      <p class="lead section-lead"><%= typeof subheading !== 'undefined' ? subheading : 'Hear about compassionate, trauma-informed psychotherapy and what to expect when you reach out.' %></p>
+    </header>
+    <div class="video-grid">
+      <article class="video-card">
+        <video
+          class="video-player"
+          controls
+          preload="metadata"
+          playsinline
+          poster="<%= asset(assets.videoPoster) %>"
+          aria-label="<%= assets.videoIntro1Title %>"
+        >
+          <source src="<%= asset(assets.videoIntro1) %>" type="video/mp4" />
+          Your browser does not support embedded video.
+        </video>
+        <h3><%= assets.videoIntro1Title %></h3>
+      </article>
+      <article class="video-card">
+        <video
+          class="video-player"
+          controls
+          preload="metadata"
+          playsinline
+          poster="<%= asset(assets.videoPoster) %>"
+          aria-label="<%= assets.videoIntro2Title %>"
+        >
+          <source src="<%= asset(assets.videoIntro2) %>" type="video/mp4" />
+          Your browser does not support embedded video.
+        </video>
+        <h3><%= assets.videoIntro2Title %></h3>
+      </article>
+    </div>
+    <% if (typeof showCta !== 'undefined' && showCta) { %>
+    <p class="video-cta">
+      <a href="<%= site.janeApp %>" class="btn btn-primary" target="_blank" rel="noopener">Book an appointment</a>
+    </p>
+    <% } %>
+  </div>
+</section>

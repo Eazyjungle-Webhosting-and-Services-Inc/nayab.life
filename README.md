@@ -31,16 +31,26 @@ Open http://localhost:3000
 
 **Change these in production** by setting `ADMIN_USERNAME` and `ADMIN_PASSWORD` in your `.env` file on the server.
 
+## Custom media
+
+Your own photos and videos live in:
+
+- `public/images/custom/` — branding & promo graphics
+- `public/media/videos/` — intro clips (`intro-clip-1.mp4`, `intro-clip-2.mp4`)
+
+Drop new files in `temp/` during editing, then copy into `public/` (or upload via `/admin` → Media). The `temp/` folder is not deployed (gitignored).
+
 ## Project structure
 
 ```
 app.js              # Entry point
 routes/             # Public & admin routes
 views/              # EJS templates
-public/             # CSS, JS, static images
+public/             # CSS, JS, images, videos
 content/            # Pages & posts (JSON)
 data/site.json      # Site settings
-uploads/            # Uploaded media
+data/assets.json    # Image & video paths for templates
+uploads/            # CMS-uploaded media
 ```
 
 ## Plesk deployment

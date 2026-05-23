@@ -6,31 +6,50 @@
 <body>
   <%- include('partials/header') %>
   <%- include('partials/page-banner', {
-    image: assets.aboutBanner,
+    image: assets.nayabIntroBanner,
     eyebrow: 'About',
     title: "Hello, I'm Nayab",
     lead: 'Your personal psychotherapist and counselor — dedicated, culturally attuned, clinically grounded.'
   }) %>
+
+  <section class="section about-intro-visual">
+    <div class="container about-promo-row">
+      <figure class="about-promo-main">
+        <%- include('partials/img', {
+          src: assets.nayabIntroBanner,
+          fallback: assets.heroPortraitFallback,
+          alt: 'Nayab Tahir — Registered Psychotherapist',
+          className: 'rounded-photo'
+        }) %>
+      </figure>
+      <figure class="about-promo-side">
+        <%- include('partials/img', {
+          src: assets.nayabPromoVertical,
+          fallback: assets.nayabIntroBanner,
+          alt: 'Psychotherapy services with Nayab Tahir',
+          className: 'promo-vertical-img'
+        }) %>
+      </figure>
+    </div>
+  </section>
+
+  <%- include('partials/video-section', {
+    heading: 'Videos from Nayab',
+    subheading: 'Learn more about my approach, Voice Awareness, and how we can work together.',
+    showCta: true
+  }) %>
+
   <section class="section">
     <div class="container content-grid">
       <div class="content-main prose">
-        <figure class="inline-portrait">
-          <%- include('partials/img', {
-            src: assets.heroPortrait,
-            fallback: assets.heroPortraitFallback,
-            alt: 'Nayab Tahir portrait',
-            className: 'rounded-photo'
-          }) %>
-        </figure>
         <%- page.html || '' %>
       </div>
       <aside class="sidebar">
         <div class="sidebar-card sidebar-photo">
           <%- include('partials/img', {
-            src: assets.therapySession,
-            fallback: assets.therapySessionFallback,
-            alt: 'Therapeutic conversation',
-            className: 'sidebar-img'
+            src: assets.brandingIcon,
+            alt: 'Mental health support symbol',
+            className: 'sidebar-img contain-img'
           }) %>
         </div>
         <div class="sidebar-card">
@@ -54,6 +73,20 @@
       </aside>
     </div>
   </section>
+
+  <section class="section alt">
+    <div class="container center">
+      <figure class="healing-icon-large">
+        <%- include('partials/img', {
+          src: assets.healingGrowthIcon,
+          alt: 'Healing and personal growth',
+          className: 'healing-icon-img'
+        }) %>
+      </figure>
+      <p class="lead">You don't have to go through it alone. I'm here to walk with you.</p>
+    </div>
+  </section>
+
   <%- include('partials/footer') %>
 </body>
 </html>

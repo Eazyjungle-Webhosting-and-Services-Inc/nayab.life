@@ -62,7 +62,8 @@ The site serves `/css`, `/js`, and `/images` from the `public/` folder via Node.
 After deploying, confirm these URLs load (not 404/503):
 
 - `https://nayab.life/css/main.css?v=3`
-- `https://nayab.life/images/nayab-hero.webp?v=3`
+- `https://nayab.life/images/custom/nayab-intro-banner.jpeg?v=4`
+- `https://nayab.life/media/videos/intro-clip-1.mp4?v=4`
 
 If static files fail, ensure the full repo (including `public/images/*.webp`) is deployed and restart the Node.js app. Images also have CDN fallbacks to voiceawareness.ca if local files are missing.
 

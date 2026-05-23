@@ -1,0 +1,47 @@
+<section class="section promo-gallery">
+  <div class="container">
+    <header class="section-header">
+      <div>
+        <p class="eyebrow">Let the voices be heard</p>
+        <h2>Heal, grow &amp; become your best self</h2>
+        <p>Canada-based · Online therapy · Anxiety, trauma, self-discovery &amp; emotional well-being.</p>
+      </div>
+    </header>
+    <div class="promo-grid">
+      <figure class="promo-card promo-card-feature">
+        <%- include('img', {
+          src: assets.nayabIntroBanner,
+          fallback: assets.heroPortraitFallback,
+          alt: 'Nayab Tahir — psychotherapist',
+          className: 'promo-img'
+        }) %>
+      </figure>
+      <figure class="promo-card promo-card-vertical">
+        <%- include('img', {
+          src: assets.nayabPromoVertical,
+          fallback: assets.nayabIntroBanner,
+          alt: 'Services offered by Nayab Tahir',
+          className: 'promo-img'
+        }) %>
+      </figure>
+      <div class="promo-icons">
+        <figure class="promo-icon-card">
+          <%- include('img', {
+            src: assets.brandingIcon,
+            alt: 'Support and mental wellness symbol',
+            className: 'promo-icon'
+          }) %>
+          <figcaption>Safe, supportive care</figcaption>
+        </figure>
+        <figure class="promo-icon-card">
+          <%- include('img', {
+            src: assets.healingGrowthIcon,
+            alt: 'Growth and healing symbol',
+            className: 'promo-icon'
+          }) %>
+          <figcaption>Growth &amp; resilience</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
