@@ -3,7 +3,7 @@ function requireAuth(req, res, next) {
     return next();
   }
   const redirect = encodeURIComponent(req.originalUrl || '/admin');
-  res.redirect(`/admin/login?redirect=${redirect}`);
+  res.redirect(`/admin/login?session=1&redirect=${redirect}`);
 }
 
 module.exports = { requireAuth };

@@ -6,6 +6,7 @@ const { v4: uuidv4 } = require('uuid');
 
 const content = require('../lib/content');
 const { requireAuth } = require('../middleware/auth');
+const { verifyAdminLogin, getAdminCredentials } = require('../lib/auth-config');
 
 const router = express.Router();
 
@@ -47,26 +48,47 @@ router.use((req, res, next) => {
   next();
 });
 
+function safeRedirect(path) {
+  if (typeof path === 'string' && path.startsWith('/') && !path.startsWith('//')) {
+    return path;
+  }
+  return '/admin';
+}
+
 router.get('/login', (req, res) => {
   if (req.session.authenticated) return res.redirect('/admin');
   res.render('admin/login', {
     title: 'Admin Login',
-    redirect: req.query.redirect || '/admin',
+    redirect: safeRedirect(req.query.redirect),
     error: req.query.error,
+    sessionLost: req.query.session === '1',
   });
 });
 
 router.post('/login', (req, res) => {
-  const username = process.env.ADMIN_USERNAME || 'nayab_admin';
-  const password = process.env.ADMIN_PASSWORD || 'NayabLife2025!';
   const { user, pass, redirect } = req.body;
+  const target = safeRedirect(redirect);
 
-  if (user === username && pass === password) {
-    req.session.authenticated = true;
-    req.session.username = user;
-    return res.redirect(redirect || '/admin');
+  if (verifyAdminLogin(user, pass)) {
+    const creds = getAdminCredentials();
+    req.session.regenerate((err) => {
+      if (err) {
+        console.error('Session regenerate failed:', err);
+        return res.redirect(`/admin/login?error=1&redirect=${encodeURIComponent(target)}`);
+      }
+      req.session.authenticated = true;
+      req.session.username = creds.username;
+      req.session.save((saveErr) => {
+        if (saveErr) {
+          console.error('Session save failed:', saveErr);
+          return res.redirect(`/admin/login?error=1&redirect=${encodeURIComponent(target)}`);
+        }
+        res.redirect(target);
+      });
+    });
+    return;
   }
-  res.redirect(`/admin/login?error=1&redirect=${encodeURIComponent(redirect || '/admin')}`);
+  res.redirect(`/admin/login?error=1&redirect=${encodeURIComponent(target)}`);
 });
 
 router.post('/logout', requireAuth, (req, res) => {

@@ -84,8 +84,10 @@ Plesk usually proxies HTTPS to the Node.js port automatically. If the site does 
 
 ## 10. Admin access
 
-- URL: `https://nayab.life/admin`
-- Default login: see root `README.md` (change via env vars in production)
+- URL: `https://nayab.life/admin` (use the same host every time — `www` or non-`www`, not both)
+- Default login: `nayab_admin` / `NayabLife2025!` (see `data/admin.json` or env vars)
+- Set `ADMIN_USERNAME`, `ADMIN_PASSWORD`, and `SESSION_SECRET` in Plesk Node.js environment variables
+- If login loops back to the form: restart the app after deploy (session cookies require HTTPS proxy support, built into the app)
 
 ## 11. Backups
 

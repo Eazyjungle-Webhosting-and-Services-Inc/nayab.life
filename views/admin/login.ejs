@@ -11,6 +11,7 @@
     <h1>nayab.life CMS</h1>
     <p>Content management for blog, articles, news, and pages.</p>
     <% if (error) { %><div class="alert alert-error">Invalid username or password.</div><% } %>
+    <% if (sessionLost) { %><div class="alert alert-error">Your session could not be saved. Try again — if this continues, clear cookies for this site or use the same URL (with or without www) each time.</div><% } %>
     <form method="post" action="/admin/login">
       <input type="hidden" name="redirect" value="<%= redirect %>" />
       <label>Username <input type="text" name="user" required autocomplete="username" /></label>

@@ -11,21 +11,31 @@ const { mountPublicStatic } = require('./lib/static-files');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const isProduction = process.env.NODE_ENV === 'production';
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
+// Required on Plesk / nginx so secure session cookies work over HTTPS
+if (isProduction) {
+  app.set('trust proxy', 1);
+}
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
   session({
+    name: 'nayab.sid',
     secret: process.env.SESSION_SECRET || 'nayab-life-dev-secret-change-in-production',
     resave: false,
     saveUninitialized: false,
+    proxy: isProduction,
     cookie: {
-      secure: process.env.NODE_ENV === 'production',
+      secure: isProduction,
       httpOnly: true,
+      sameSite: 'lax',
       maxAge: 24 * 60 * 60 * 1000,
+      path: '/',
     },
   })
 );
