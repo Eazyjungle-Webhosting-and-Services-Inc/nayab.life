@@ -38,7 +38,13 @@ Your own photos and videos live in:
 - `public/images/custom/` — branding & promo graphics
 - `public/media/videos/` — intro clips (`intro-clip-1.mp4`, `intro-clip-2.mp4`)
 
-Drop new files in `temp/` during editing, then copy into `public/` (or upload via `/admin` → Media). The `temp/` folder is not deployed (gitignored).
+Drop new files in `temp/` during editing, then copy into `public/` (or upload via `/admin` → Media). Rebuild the clip-3 reel with:
+
+```bash
+npm run build:reel
+```
+
+Output: `public/media/reels/reel-clip-3.mp4`
 
 ## Project structure
 

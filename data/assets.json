@@ -1,5 +1,5 @@
 {
-  "version": "8",
+  "version": "9",
   "heroPortrait": "/images/custom/nayab-intro-banner.jpeg",
   "heroPortraitFallback": "https://voiceawareness.ca/wp-content/uploads/2025/12/Untitled-design-12-1.webp",
   "nayabIntroBanner": "/images/custom/nayab-intro-banner.jpeg",
@@ -24,5 +24,9 @@
   "videoPoster1": "/media/posters/intro-clip-1-poster.jpg",
   "videoPoster2": "/media/posters/intro-clip-2-poster.jpg",
   "videoIntro1Title": "Let the voices be heard - by Nayab Tahir",
-  "videoIntro2Title": "Get into Survival mode with good lighting - by Nayab Tahir"
+  "videoIntro2Title": "Get into Survival mode with good lighting - by Nayab Tahir",
+  "reelClip3": "/media/reels/reel-clip-3.mp4",
+  "reelClip3Poster": "/media/reels/reel-clip-3-poster.jpg",
+  "reelClip3Title": "Sometimes productivity isn't peace — by Nayab Tahir",
+  "reelClip3Description": "A reel on overthinking, outward appearances, and finding emotional balance. Includes intro, therapy visuals, and how to book with Voice Awareness."
 }
