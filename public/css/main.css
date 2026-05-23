@@ -1182,19 +1182,20 @@ a:hover {
   box-shadow: var(--shadow-soft);
 }
 
+.about-teaser-img,
+.about-promo-main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
 .about-photo {
-  object-fit: cover;
-  aspect-ratio: 4/5;
-  max-height: 520px;
-  width: 100%;
-  background: linear-gradient(160deg, #f0f7f4, #ebe8f0);
+  width: auto;
+  max-width: min(100%, 380px);
+  height: auto;
+  max-height: none;
+  object-fit: unset;
+  aspect-ratio: unset;
+  border-radius: var(--radius);
   box-shadow: var(--shadow);
-}
-
-.about-teaser-img .about-photo {
-  max-height: 480px;
-}
-
-.about-promo-main .about-photo {
-  max-height: 560px;
 }
