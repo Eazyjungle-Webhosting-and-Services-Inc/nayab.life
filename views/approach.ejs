@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/header') %>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Therapeutic approach</p>
+      <h1>Holistic, client-centred care</h1>
+      <p class="lead">No one-size-fits-all — modalities chosen with your comfort and goals at the centre.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <%- page.html || '' %>
+    </div>
+  </section>
+  <%- include('partials/footer') %>
+</body>
+</html>

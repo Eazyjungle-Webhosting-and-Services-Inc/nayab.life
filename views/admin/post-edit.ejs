@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %> | CMS</title>
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body class="admin-body">
+  <%- include('../partials/admin-header') %>
+  <main class="admin-main container">
+    <% if (flash) { %><div class="alert alert-<%= flash.level %>"><%= flash.message %></div><% } %>
+    <h1><%= post.slug ? 'Edit' : 'New' %> <%= postType %></h1>
+    <form method="post" action="/admin/posts/<%= postType %>/save" class="admin-form">
+      <input type="hidden" name="slug" value="<%= post.slug || '' %>" />
+      <label>Title <input type="text" name="title" value="<%= post.title || '' %>" required /></label>
+      <div class="form-row">
+        <label>Status
+          <select name="status">
+            <option value="draft" <%= post.status === 'draft' ? 'selected' : '' %>>Draft</option>
+            <option value="published" <%= post.status === 'published' ? 'selected' : '' %>>Published</option>
+          </select>
+        </label>
+        <label>Author <input type="text" name="author" value="<%= post.author || 'Nayab Tahir' %>" /></label>
+      </div>
+      <label>Excerpt <textarea name="excerpt" rows="2"><%= post.excerpt || '' %></textarea></label>
+      <label>Featured image URL <input type="text" name="featuredImage" value="<%= post.featuredImage || '' %>" placeholder="/uploads/your-image.jpg" /></label>
+      <label>Tags (comma-separated) <input type="text" name="tags" value="<%= (post.tags || []).join(', ') %>" /></label>
+      <label>Meta description <input type="text" name="metaDescription" value="<%= post.metaDescription || '' %>" /></label>
+      <label>Body (Markdown)
+        <textarea name="body" rows="18" class="code-area"><%= post.body || '' %></textarea>
+      </label>
+      <input type="hidden" name="bodyFormat" value="markdown" />
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <% if (post.slug && post.status !== 'published') { %>
+        <button formaction="/admin/posts/<%= postType %>/approve/<%= post.slug %>" formmethod="post" type="submit" class="btn btn-success">Publish now</button>
+        <% } %>
+        <a href="/admin/posts/<%= postType %>" class="btn btn-outline">Back</a>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

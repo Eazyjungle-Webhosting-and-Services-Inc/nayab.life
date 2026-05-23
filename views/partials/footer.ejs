@@ -1,0 +1,40 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <strong>Nayab Tahir</strong>
+      <p>Registered Psychotherapist · Ontario</p>
+      <p class="footer-company">
+        <a href="<%= site.companyUrl %>" target="_blank" rel="noopener"><%= site.company %></a>
+      </p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/articles">Articles</a></li>
+        <li><a href="/news">News</a></li>
+        <li><a href="/approach">Therapeutic Approach</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Practice</h4>
+      <ul>
+        <li><a href="<%= site.janeApp %>" target="_blank" rel="noopener">Book via Jane App</a></li>
+        <li><a href="<%= site.psychologyToday %>" target="_blank" rel="noopener">Psychology Today</a></li>
+        <li><a href="<%= site.companyUrl %>" target="_blank" rel="noopener">Voice Awareness</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="tel:<%= site.phone.replace(/\D/g,'') %>"><%= site.phone %></a></li>
+        <li><a href="<%= site.linkedin %>" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="/contact">Send a message</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; <%= new Date().getFullYear() %> <%= site.owner %>. All rights reserved. · <a href="https://nayab.life">nayab.life</a></p>
+  </div>
+</footer>
+<script src="/js/main.js" defer></script>

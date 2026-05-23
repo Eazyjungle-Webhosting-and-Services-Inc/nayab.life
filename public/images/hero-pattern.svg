@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <pattern id="leaves" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="40" cy="40" r="1.5" fill="#2d5a4a" opacity="0.15"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#leaves)"/>
+  <path d="M0 400 Q200 350 400 380 T800 360 L800 600 L0 600 Z" fill="#2d5a4a" opacity="0.06"/>
+</svg>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body class="page-home">
+  <%- include('partials/header') %>
+
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <p class="eyebrow">Voice Awareness Psychotherapy Services Inc.</p>
+        <h1>Find your inner peace with <em>compassionate</em> psychotherapy</h1>
+        <p class="lead">
+          Welcome to nayab.life — insights, articles, and developments in psychotherapy from
+          <strong>Nayab Tahir</strong>, Registered Psychotherapist in Ontario.
+        </p>
+        <div class="hero-actions">
+          <a href="<%= site.janeApp %>" class="btn btn-primary" target="_blank" rel="noopener">Book a consultation</a>
+          <a href="/about" class="btn btn-outline">Meet Nayab</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="portrait-frame">
+          <img src="/images/nayab-portrait.svg" alt="Illustration representing Nayab Tahir, psychotherapist" width="420" height="520" />
+        </div>
+        <div class="hero-badge">
+          <span>IFS · CBT · DBT</span>
+          <span>Trauma-informed care</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section intro-strip">
+    <div class="container narrow">
+      <blockquote>
+        Therapy is not about quick fixes — it is a collaborative process focused on self-awareness,
+        coping skills, and long-term emotional well-being.
+      </blockquote>
+      <p>
+        Through <a href="<%= site.companyUrl %>">Voice Awareness</a>, Nayab offers evidence-based,
+        trauma-informed psychotherapy for adults navigating anxiety, trauma, relationship challenges,
+        and life transitions — now with a dedicated space for reflection, news, and professional insight at nayab.life.
+      </p>
+    </div>
+  </section>
+
+  <section class="section services-preview">
+    <div class="container">
+      <header class="section-header">
+        <h2>Areas of focus</h2>
+        <p>Personalized care grounded in clinical expertise and cross-cultural understanding.</p>
+      </header>
+      <div class="card-grid four">
+        <article class="icon-card">
+          <div class="icon" aria-hidden="true">◐</div>
+          <h3>Stress Management</h3>
+          <p>Personalized sessions to alleviate pressures and restore purpose and balance.</p>
+        </article>
+        <article class="icon-card">
+          <div class="icon" aria-hidden="true">♡</div>
+          <h3>Relationship Trauma</h3>
+          <p>Process complex experiences and rebuild safety in individual or couples work.</p>
+        </article>
+        <article class="icon-card">
+          <div class="icon" aria-hidden="true">◎</div>
+          <h3>Emotional Stability</h3>
+          <p>Learn regulation skills when emotions feel intensely high or low.</p>
+        </article>
+        <article class="icon-card">
+          <div class="icon" aria-hidden="true">✦</div>
+          <h3>Personal Growth</h3>
+          <p>Identify roadblocks and nurture self-awareness for lasting change.</p>
+        </article>
+      </div>
+      <p class="section-cta"><a href="/services" class="btn btn-text">View all services →</a></p>
+    </div>
+  </section>
+
+  <% if (latestBlog && latestBlog.length) { %>
+  <section class="section alt">
+    <div class="container">
+      <header class="section-header">
+        <h2>From the blog</h2>
+        <a href="/blog" class="btn btn-text">All posts</a>
+      </header>
+      <div class="card-grid three">
+        <% latestBlog.forEach(function(post) { %>
+          <%- include('partials/post-card', { post: post, type: 'blog' }) %>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+  <% } %>
+
+  <% if (latestNews && latestNews.length) { %>
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <h2>News &amp; developments</h2>
+        <a href="/news" class="btn btn-text">All news</a>
+      </header>
+      <div class="card-grid three">
+        <% latestNews.forEach(function(post) { %>
+          <%- include('partials/post-card', { post: post, type: 'news' }) %>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+  <% } %>
+
+  <section class="section cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>Ready to take the next step?</h2>
+        <p>Book a free consultation or explore therapeutic approaches that honour your pace and goals.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="<%= site.janeApp %>" class="btn btn-primary" target="_blank" rel="noopener">Jane App</a>
+        <a href="/contact" class="btn btn-outline-light">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

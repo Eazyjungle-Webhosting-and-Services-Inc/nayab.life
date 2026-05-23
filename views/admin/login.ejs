@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login | nayab.life</title>
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body class="admin-login-page">
+  <div class="login-card">
+    <h1>nayab.life CMS</h1>
+    <p>Content management for blog, articles, news, and pages.</p>
+    <% if (error) { %><div class="alert alert-error">Invalid username or password.</div><% } %>
+    <form method="post" action="/admin/login">
+      <input type="hidden" name="redirect" value="<%= redirect %>" />
+      <label>Username <input type="text" name="user" required autocomplete="username" /></label>
+      <label>Password <input type="password" name="pass" required autocomplete="current-password" /></label>
+      <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+    </form>
+    <p class="login-hint">Default credentials are documented in README.md and .env.example</p>
+  </div>
+</body>
+</html>

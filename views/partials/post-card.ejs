@@ -1,0 +1,15 @@
+<article class="post-card">
+  <% if (post.featuredImage) { %>
+  <a href="/<%= type %>/<%= post.slug %>" class="post-card-image">
+    <img src="<%= post.featuredImage %>" alt="" loading="lazy" />
+  </a>
+  <% } %>
+  <div class="post-card-body">
+    <time datetime="<%= post.publishedAt || post.createdAt %>">
+      <%= new Date(post.publishedAt || post.createdAt).toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+    </time>
+    <h3><a href="/<%= type %>/<%= post.slug %>"><%= post.title %></a></h3>
+    <p><%= post.excerpt %></p>
+    <a href="/<%= type %>/<%= post.slug %>" class="read-more">Read more</a>
+  </div>
+</article>

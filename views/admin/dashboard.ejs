@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | nayab.life CMS</title>
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body class="admin-body">
+  <%- include('../partials/admin-header') %>
+  <main class="admin-main container">
+    <% if (flash) { %><div class="alert alert-<%= flash.level %>"><%= flash.message %></div><% } %>
+    <h1>Dashboard</h1>
+    <div class="stats-grid">
+      <div class="stat-card"><strong><%= stats.blog %></strong><span>Blog posts</span></div>
+      <div class="stat-card"><strong><%= stats.articles %></strong><span>Articles</span></div>
+      <div class="stat-card"><strong><%= stats.news %></strong><span>News items</span></div>
+      <div class="stat-card"><strong><%= stats.published %></strong><span>Published</span></div>
+      <div class="stat-card"><strong><%= stats.draft %></strong><span>Drafts</span></div>
+    </div>
+    <div class="quick-actions">
+      <h2>Quick actions</h2>
+      <a href="/admin/posts/blog/new" class="btn">New blog post</a>
+      <a href="/admin/posts/articles/new" class="btn">New article</a>
+      <a href="/admin/posts/news/new" class="btn">New news item</a>
+      <a href="/admin/media" class="btn btn-outline">Upload media</a>
+    </div>
+    <div class="approve-panel">
+      <h2>Approve &amp; publish</h2>
+      <p>Open any content type, edit drafts, and use <strong>Publish now</strong> or set status to <em>published</em> when saving.</p>
+      <ul>
+        <li><a href="/admin/posts/blog">Manage blog →</a></li>
+        <li><a href="/admin/posts/news">Manage news →</a></li>
+        <li><a href="/admin/posts/articles">Manage articles →</a></li>
+      </ul>
+    </div>
+  </main>
+</body>
+</html>

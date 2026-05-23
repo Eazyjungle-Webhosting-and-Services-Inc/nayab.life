@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head', { metaDescription: post.metaDescription || post.excerpt }) %>
+</head>
+<body>
+  <%- include('partials/header') %>
+  <article class="section">
+    <div class="container narrow">
+      <p class="eyebrow"><a href="/<%= type %>"><%= typeLabel %></a></p>
+      <h1 class="post-title"><%= post.title %></h1>
+      <p class="post-meta">
+        <time datetime="<%= post.publishedAt %>">
+          <%= new Date(post.publishedAt || post.createdAt).toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+        </time>
+        <% if (post.author) { %> · <%= post.author %><% } %>
+      </p>
+      <% if (post.featuredImage) { %>
+        <figure class="post-featured">
+          <img src="<%= post.featuredImage %>" alt="" />
+        </figure>
+      <% } %>
+      <div class="prose"><%- post.html %></div>
+      <% if (post.tags && post.tags.length) { %>
+        <ul class="tag-list">
+          <% post.tags.forEach(function(tag) { %><li><%= tag %></li><% }); %>
+        </ul>
+      <% } %>
+    </div>
+  </article>
+  <%- include('partials/footer') %>
+</body>
+</html>

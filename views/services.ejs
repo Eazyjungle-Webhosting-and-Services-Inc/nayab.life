@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/header') %>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Services</p>
+      <h1>Psychotherapy &amp; counseling for adults</h1>
+      <p class="lead">Evidence-based, trauma-informed care tailored to your unique situation and goals.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose narrow">
+      <%- page.html || '' %>
+    </div>
+  </section>
+  <section class="section alt">
+    <div class="container narrow center">
+      <h2>Who counseling is for</h2>
+      <p class="lead">You do not need to be in crisis to begin therapy. Many clients seek support proactively for growth, balance, and emotional well-being.</p>
+      <a href="<%= site.janeApp %>" class="btn btn-primary" target="_blank" rel="noopener">Book a free consultation</a>
+    </div>
+  </section>
+  <%- include('partials/footer') %>
+</body>
+</html>

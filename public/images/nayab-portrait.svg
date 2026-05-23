@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 520" role="img" aria-label="Abstract portrait illustration">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ebe8e0"/>
+      <stop offset="100%" style="stop-color:#d4e4dc"/>
+    </linearGradient>
+    <linearGradient id="figure" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d5a4a"/>
+      <stop offset="100%" style="stop-color:#1e3d32"/>
+    </linearGradient>
+  </defs>
+  <rect width="420" height="520" rx="24" fill="url(#bg)"/>
+  <ellipse cx="210" cy="180" rx="72" ry="80" fill="#f7f5f0" opacity="0.9"/>
+  <path d="M120 200 Q210 120 300 200 L300 480 Q210 520 120 480 Z" fill="url(#figure)" opacity="0.85"/>
+  <circle cx="185" cy="175" r="6" fill="#1e2a24" opacity="0.4"/>
+  <circle cx="235" cy="175" r="6" fill="#1e2a24" opacity="0.4"/>
+  <path d="M195 200 Q210 215 225 200" stroke="#b8956b" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <circle cx="340" cy="100" r="40" fill="#b8956b" opacity="0.2"/>
+  <circle cx="80" cy="400" r="60" fill="#2d5a4a" opacity="0.15"/>
+  <text x="210" y="460" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#5c6b62" opacity="0.7">Nayab Tahir · Psychotherapy</text>
+</svg>

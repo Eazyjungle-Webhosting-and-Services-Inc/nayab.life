@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/header') %>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">About</p>
+      <h1>Hello, I'm Nayab</h1>
+      <p class="lead">Your personal psychotherapist and counselor — dedicated, culturally attuned, clinically grounded.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container content-grid">
+      <div class="content-main prose">
+        <%- page.html || '' %>
+      </div>
+      <aside class="sidebar">
+        <div class="sidebar-card">
+          <h3>Credentials</h3>
+          <ul class="check-list">
+            <li>MACP — Yorkville University</li>
+            <li>BA Psychology</li>
+            <li>BSc Pharmacy</li>
+            <li>Registered Psychotherapist (Ontario)</li>
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h3>Connect</h3>
+          <ul class="link-list">
+            <li><a href="<%= site.youtube %>" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="<%= site.linkedin %>" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="<%= site.psychologyToday %>" target="_blank" rel="noopener">Psychology Today</a></li>
+            <li><a href="<%= site.janeApp %>" target="_blank" rel="noopener">Jane App</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+  <%- include('partials/footer') %>
+</body>
+</html>

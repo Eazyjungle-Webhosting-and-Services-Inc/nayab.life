@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %> | CMS</title>
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body class="admin-body">
+  <%- include('../partials/admin-header') %>
+  <main class="admin-main container">
+    <% if (flash) { %><div class="alert alert-<%= flash.level %>"><%= flash.message %></div><% } %>
+    <div class="admin-toolbar">
+      <h1><%= postType.charAt(0).toUpperCase() + postType.slice(1) %></h1>
+      <a href="/admin/posts/<%= postType %>/new" class="btn btn-primary">+ New</a>
+    </div>
+    <table class="admin-table">
+      <thead>
+        <tr><th>Title</th><th>Status</th><th>Date</th><th>Actions</th></tr>
+      </thead>
+      <tbody>
+        <% posts.forEach(function(post) { %>
+        <tr>
+          <td><%= post.title %></td>
+          <td><span class="badge badge-<%= post.status %>"><%= post.status %></span></td>
+          <td><%= new Date(post.updatedAt).toLocaleDateString() %></td>
+          <td class="actions">
+            <a href="/admin/posts/<%= postType %>/edit/<%= post.slug %>">Edit</a>
+            <% if (post.status !== 'published') { %>
+            <form method="post" action="/admin/posts/<%= postType %>/approve/<%= post.slug %>" style="display:inline">
+              <button type="submit" class="link-btn">Publish</button>
+            </form>
+            <% } %>
+            <form method="post" action="/admin/posts/<%= postType %>/delete/<%= post.slug %>" style="display:inline" onsubmit="return confirm('Delete this post?')">
+              <button type="submit" class="link-btn danger">Delete</button>
+            </form>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>

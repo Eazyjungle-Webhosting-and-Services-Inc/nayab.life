@@ -1,0 +1,18 @@
+<header class="admin-header">
+  <div class="admin-header-inner">
+    <a href="/admin" class="admin-logo">nayab.life <span>CMS</span></a>
+    <nav>
+      <a href="/admin">Dashboard</a>
+      <a href="/admin/posts/blog">Blog</a>
+      <a href="/admin/posts/articles">Articles</a>
+      <a href="/admin/posts/news">News</a>
+      <a href="/admin/pages">Pages</a>
+      <a href="/admin/media">Media</a>
+      <a href="/admin/site">Settings</a>
+      <a href="/" target="_blank">View site</a>
+    </nav>
+    <form method="post" action="/admin/logout" class="logout-form">
+      <button type="submit" class="btn btn-sm">Logout (<%= adminUser %>)</button>
+    </form>
+  </div>
+</header>

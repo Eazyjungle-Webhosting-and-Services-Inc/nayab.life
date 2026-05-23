@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/header') %>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow"><%= typeLabel %></p>
+      <h1><%= title %></h1>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <% if (!posts.length) { %>
+        <p class="empty-state">No published <%= typeLabel.toLowerCase() %> yet. Check back soon.</p>
+      <% } else { %>
+        <div class="card-grid three">
+          <% posts.forEach(function(post) { %>
+            <%- include('partials/post-card', { post: post, type: type }) %>
+          <% }); %>
+        </div>
+      <% } %>
+    </div>
+  </section>
+  <%- include('partials/footer') %>
+</body>
+</html>

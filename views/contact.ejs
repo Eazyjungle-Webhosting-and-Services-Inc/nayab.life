@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/header') %>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Contact</p>
+      <h1>Let's connect</h1>
+      <p class="lead">Call toll-free or send a message. Virtual psychotherapy available across Ontario.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container content-grid">
+      <div>
+        <% if (sent) { %>
+        <div class="alert alert-success">Thank you — your message has been received. We will respond as soon as possible.</div>
+        <% } %>
+        <form class="contact-form" method="post" action="/contact">
+          <div class="form-row">
+            <label>First name <input type="text" name="firstName" required /></label>
+            <label>Last name <input type="text" name="lastName" required /></label>
+          </div>
+          <label>Email <input type="email" name="email" required /></label>
+          <label>Phone <input type="tel" name="phone" /></label>
+          <label>Are you located in Ontario?
+            <select name="ontario" required>
+              <option value="">Select…</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+          <label>Message <textarea name="message" rows="6" required></textarea></label>
+          <button type="submit" class="btn btn-primary">Send message</button>
+        </form>
+      </div>
+      <aside class="sidebar">
+        <div class="sidebar-card">
+          <h3>Direct</h3>
+          <p><a href="tel:18008570609"><%= site.phone %></a></p>
+          <p><a href="<%= site.janeApp %>" target="_blank" rel="noopener">Book on Jane App</a></p>
+        </div>
+        <div class="sidebar-card">
+          <h3>Practice website</h3>
+          <p><a href="<%= site.companyUrl %>"><%= site.company %></a></p>
+        </div>
+      </aside>
+    </div>
+  </section>
+  <%- include('partials/footer') %>
+</body>
+</html>
