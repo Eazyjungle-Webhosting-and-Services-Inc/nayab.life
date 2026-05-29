@@ -1,73 +1,82 @@
 # nayab.life
 
-A Node.js blog and content site for **Nayab Tahir**, Registered Psychotherapist (Ontario), associated with [Voice Awareness Psychotherapy Services Inc.](https://www.voiceawareness.ca).
+A psychotherapy blog and content site for **Nayab Tahir**, Registered Psychotherapist (Ontario), associated with [Voice Awareness Psychotherapy Services Inc.](https://www.voiceawareness.ca).
 
-## Features
+## Stack
 
-- Public website: home, about, services, approach, contact
-- Blog, articles, and news sections
-- Admin CMS at `/admin` for editing pages, posts, and media
-- JSON-based content storage (easy to back up on Plesk)
-- Markdown support for posts and pages
-- Media upload library
+| App | Path | Purpose |
+|-----|------|---------|
+| **Next.js** | `apps/web` | Public website + admin UI (port 3000) |
+| **NestJS** | `apps/api` | Content REST API (port 4000) |
+| **Legacy Express** | `app.js` | Original EJS site (current Plesk production) |
 
-## Quick start (local)
+Full architecture, folder layout, and editing workflow: **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)**
+
+## Quick start (Next.js + NestJS)
 
 ```bash
 npm install
-cp .env.example .env
-npm start
+npm run sync:public          # copy public/ assets into apps/web/public
+cp apps/api/.env.example apps/api/.env
+cp apps/web/.env.example apps/web/.env.local
+npm run dev                  # API :4000 + Web :3000
 ```
 
-Open http://localhost:3000
+- Site: http://localhost:3000  
+- Admin: http://localhost:3000/admin/login  
+- API: http://localhost:4000/api/site  
 
-## Admin CMS credentials (public defaults)
+## Legacy Express (Plesk / transition)
+
+```bash
+cp .env.example .env
+npm run legacy:start
+```
+
+Open http://localhost:3000 — includes EJS admin at `/admin`.
+
+## Admin credentials (defaults)
 
 | Field    | Value            |
 |----------|------------------|
-| URL      | `/admin`         |
 | Username | `nayab_admin`    |
 | Password | `NayabLife2025!` |
 
-**Change these in production** by setting `ADMIN_USERNAME` and `ADMIN_PASSWORD` in your `.env` file on the server.
+Set `ADMIN_USERNAME` and `ADMIN_PASSWORD` in `apps/api/.env` (new stack) or root `.env` (legacy).
 
-## Custom media
+## Content locations
 
-Your own photos and videos live in:
+| Path | Purpose |
+|------|---------|
+| `content/pages/` | About, services, approach |
+| `content/posts/{blog,articles,news}/` | Posts |
+| `data/site.json` | Contact info & links |
+| `data/assets.json` | Image/video paths |
+| `public/` | CSS, images, videos |
+| `uploads/` | CMS uploads |
 
-- `public/images/custom/` — branding & promo graphics
-- `public/media/videos/` — intro clips (`intro-clip-1.mp4`, `intro-clip-2.mp4`)
+## Scripts
 
-Drop new files in `temp/` during editing, then copy into `public/` (or upload via `/admin` → Media). The `temp/` folder is not deployed (gitignored).
-
-**Reel export (not on the website):** from `temp/videos/clip-3.mp4`, run `npm run build:reel`. Output is saved to `temp/reels/reel-clip-3.mp4` (local/social use only; not deployed).
-
-## Project structure
-
+```bash
+npm run dev          # Both apps
+npm run dev:api      # NestJS only
+npm run dev:web      # Next.js only
+npm run build        # Production build
+npm run sync:public  # Sync static assets to Next.js
+npm run build:reel   # Local reel export (not deployed)
 ```
-app.js              # Entry point
-routes/             # Public & admin routes
-views/              # EJS templates
-public/             # CSS, JS, images, videos
-content/            # Pages & posts (JSON)
-data/site.json      # Site settings
-data/assets.json    # Image & video paths for templates
-uploads/            # CMS-uploaded media
-```
+
+## Git remote
+
+**Canonical repository:** `https://github.com/Eazyjungle-Webhosting-and-Services-Inc/nayab.life.git` (branch `main`).  
+The old `bhootinsk/nayab.life` URL redirects here — see [docs/GIT.md](docs/GIT.md).
 
 ## Plesk deployment
 
-See [docs/PLESK-DEPLOYMENT.md](docs/PLESK-DEPLOYMENT.md).
-
-## Domain & DNS
-
-- Domain: **nayab.life**
-- Nameservers: `ns1.bhootns3.com`, `ns2.bhootns3.com`
+See [docs/PLESK-DEPLOYMENT.md](docs/PLESK-DEPLOYMENT.md) for the current Express setup. Migrate to Next + Nest when ready using [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## Owner
 
 Nayab Tahir — Voice Awareness Psychotherapy Services Inc.
-
-## License
 
 Private — all rights reserved.
