@@ -3,39 +3,13 @@
 <head>
   <%- include('partials/head') %>
 </head>
-<body>
+<body class="page-about">
   <%- include('partials/header') %>
   <%- include('partials/page-banner', {
     image: assets.nayabIntroBanner,
-    eyebrow: 'About',
-    title: "Hello, I'm Nayab",
-    lead: 'Your personal psychotherapist and counselor — dedicated, culturally attuned, clinically grounded.'
-  }) %>
-
-  <section class="section about-intro-visual">
-    <div class="container about-promo-row">
-      <figure class="about-promo-main">
-        <%- include('partials/img', {
-          src: assets.nayabAbout,
-          alt: 'Nayab Tahir — Registered Psychotherapist',
-          className: 'about-photo'
-        }) %>
-      </figure>
-      <figure class="about-promo-side">
-        <%- include('partials/img', {
-          src: assets.nayabPromoVertical,
-          fallback: assets.nayabIntroBanner,
-          alt: 'Psychotherapy services with Nayab Tahir',
-          className: 'promo-vertical-img'
-        }) %>
-      </figure>
-    </div>
-  </section>
-
-  <%- include('partials/video-section', {
-    heading: 'Videos from Nayab',
-    subheading: 'Learn more about my approach, Voice Awareness, and how we can work together.',
-    showCta: true
+    title: 'Nayab Tahir',
+    lead: 'Psychotherapist and counselor — dedicated, culturally attuned, clinically grounded.',
+    bannerClass: 'page-banner--about'
   }) %>
 
   <section class="section">

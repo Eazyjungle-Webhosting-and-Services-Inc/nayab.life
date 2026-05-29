@@ -864,6 +864,24 @@ a:hover {
   max-width: 50ch;
 }
 
+.page-banner--about {
+  min-height: 320px;
+  align-items: flex-end;
+}
+
+.page-banner--about .page-banner-content {
+  padding-bottom: 1.25rem;
+  transform: translateY(0.65rem);
+}
+
+.page-banner--about .page-banner-content h1 {
+  margin-top: 0;
+}
+
+.page-about .section:first-of-type {
+  padding-top: 2.5rem;
+}
+
 /* Gallery */
 .gallery-three {
   display: grid;
