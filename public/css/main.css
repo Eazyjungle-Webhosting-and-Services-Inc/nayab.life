@@ -876,6 +876,12 @@ a:hover {
 
 .page-banner--about .page-banner-content h1 {
   margin-top: 0;
+  font-weight: 700;
+}
+
+.page-banner--about .page-banner-content .lead {
+  font-weight: 700;
+  text-transform: capitalize;
 }
 
 .page-about .about-main {
