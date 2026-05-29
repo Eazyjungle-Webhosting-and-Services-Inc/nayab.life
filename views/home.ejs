@@ -52,20 +52,34 @@
     </div>
   </section>
 
-  <section class="visual-strip" aria-label="Therapy imagery">
-    <div class="visual-strip-track">
-      <figure>
-        <%- include('partials/img', { src: assets.therapySession, fallback: assets.therapySessionFallback, alt: 'Therapy session', className: 'strip-img' }) %>
-        <figcaption>Collaborative therapy</figcaption>
-      </figure>
-      <figure>
-        <%- include('partials/img', { src: assets.mindfulness, fallback: assets.mindfulnessFallback, alt: 'Mindfulness and calm', className: 'strip-img' }) %>
-        <figcaption>Mindfulness &amp; balance</figcaption>
-      </figure>
-      <figure>
-        <%- include('partials/img', { src: assets.calmNature, fallback: assets.calmNatureFallback, alt: 'Peaceful reflection', className: 'strip-img' }) %>
-        <figcaption>Emotional wellness</figcaption>
-      </figure>
+  <section class="visual-strip pillars-section" aria-label="Therapeutic focus areas">
+    <div class="container">
+      <div class="visual-strip-track pillars-grid">
+        <figure class="pillar-card pillar-card--sage">
+          <%- include('partials/img', { src: assets.therapySession, fallback: assets.therapySessionFallback, alt: 'Collaborative Therapy', className: 'strip-img' }) %>
+          <figcaption class="pillar-overlay">
+            <span class="pillar-label">Together in care</span>
+            <strong class="pillar-caption">Collaborative Therapy</strong>
+            <p class="pillar-desc">A client-led space where your voice, pace, and goals shape every session.</p>
+          </figcaption>
+        </figure>
+        <figure class="pillar-card pillar-card--lavender">
+          <%- include('partials/img', { src: assets.mindfulness, fallback: assets.mindfulnessFallback, alt: 'Mindfulness Balance', className: 'strip-img' }) %>
+          <figcaption class="pillar-overlay">
+            <span class="pillar-label">Calm &amp; grounded</span>
+            <strong class="pillar-caption">Mindfulness Balance</strong>
+            <p class="pillar-desc">Nervous-system-focused practices that restore clarity, presence, and inner steadiness.</p>
+          </figcaption>
+        </figure>
+        <figure class="pillar-card pillar-card--peach">
+          <%- include('partials/img', { src: assets.calmNature, fallback: assets.calmNatureFallback, alt: 'Emotional Wellness', className: 'strip-img' }) %>
+          <figcaption class="pillar-overlay">
+            <span class="pillar-label">Heal &amp; grow</span>
+            <strong class="pillar-caption">Emotional Wellness</strong>
+            <p class="pillar-desc">Compassionate support to understand emotions, build resilience, and feel whole again.</p>
+          </figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
