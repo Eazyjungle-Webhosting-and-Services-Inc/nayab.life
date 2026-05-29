@@ -61,17 +61,25 @@ app.get('/deploy-check', (_req, res) => {
     return res.status(500).json({ ok: false, error: 'home.ejs unreadable', detail: e.message });
   }
   const pillarFile = path.join(root, 'public', 'images', 'pillars', 'collaborative-therapy.jpg');
+  const stressFile = path.join(root, 'public', 'images', 'services', 'stress-management.jpg');
   const payload = {
     ok: true,
-    deployMarker: 'pillars-v11',
+    deployMarker: 'services-v12',
     assetsVersion: assets.version || null,
     therapySessionPath: assets.therapySession || null,
     pillarsSectionInTemplate: homeSnippet.includes('pillars-section'),
+    areasOfFocusInTemplate: homeSnippet.includes('areas-of-focus'),
     pillarImageOnDisk: fs.existsSync(pillarFile),
+    serviceStressOnDisk: fs.existsSync(stressFile),
     appRoot: root,
     nodeEnv: process.env.NODE_ENV || 'development',
   };
-  payload.fullyDeployed = payload.assetsVersion === '11' && payload.pillarsSectionInTemplate && payload.pillarImageOnDisk;
+  payload.fullyDeployed =
+    payload.assetsVersion === '12' &&
+    payload.pillarsSectionInTemplate &&
+    payload.areasOfFocusInTemplate &&
+    payload.pillarImageOnDisk &&
+    payload.serviceStressOnDisk;
   res.json(payload);
 });
 
