@@ -105,45 +105,48 @@
     </div>
   </section>
 
-  <section class="section services-preview">
+  <section class="section services-preview" id="areas-of-focus">
     <div class="container">
-      <header class="section-header">
-        <div>
-          <h2>Areas of focus</h2>
-          <p>Personalized care grounded in clinical expertise and cross-cultural understanding.</p>
-        </div>
+      <header class="section-header section-header--stacked">
+        <p class="section-eyebrow">Services</p>
+        <h2>Areas of focus</h2>
+        <p class="section-lead">Personalized care grounded in clinical expertise and cross-cultural understanding.</p>
       </header>
       <div class="card-grid four service-cards">
-        <article class="service-card" style="--card-accent: #1a6b5c">
+        <article class="service-card service-card--stress" style="--card-accent: #1a6b5c">
           <div class="service-card-img">
-            <%- include('partials/img', { src: assets.mindfulness, fallback: assets.mindfulnessFallback, alt: '', className: '' }) %>
+            <%- include('partials/img', { src: assets.serviceStress, fallback: assets.serviceStressFallback, alt: 'Mindful calm and balance for stress relief', className: 'service-card-photo' }) %>
+            <span class="service-card-tag">Calm &amp; balance</span>
           </div>
           <div class="service-card-body">
             <h3>Stress Management</h3>
             <p>Personalized sessions to alleviate pressures and restore purpose and balance.</p>
           </div>
         </article>
-        <article class="service-card" style="--card-accent: #6b4a8a">
+        <article class="service-card service-card--relationship" style="--card-accent: #6b4a8a">
           <div class="service-card-img">
-            <%- include('partials/img', { src: assets.therapySession, fallback: assets.therapySessionFallback, alt: '', className: '' }) %>
+            <%- include('partials/img', { src: assets.serviceRelationship, fallback: assets.serviceRelationshipFallback, alt: 'Supportive connection and healing in relationships', className: 'service-card-photo' }) %>
+            <span class="service-card-tag">Connection &amp; safety</span>
           </div>
           <div class="service-card-body">
             <h3>Relationship Trauma</h3>
             <p>Process complex experiences and rebuild safety in individual or couples work.</p>
           </div>
         </article>
-        <article class="service-card" style="--card-accent: #2a6b8a">
+        <article class="service-card service-card--emotional" style="--card-accent: #2a6b8a">
           <div class="service-card-img">
-            <%- include('partials/img', { src: assets.calmNature, fallback: assets.calmNatureFallback, alt: '', className: '' }) %>
+            <%- include('partials/img', { src: assets.serviceEmotional, fallback: assets.serviceEmotionalFallback, alt: 'Reflective focus and emotional regulation', className: 'service-card-photo' }) %>
+            <span class="service-card-tag">Regulation &amp; clarity</span>
           </div>
           <div class="service-card-body">
             <h3>Emotional Stability</h3>
             <p>Learn regulation skills when emotions feel intensely high or low.</p>
           </div>
         </article>
-        <article class="service-card" style="--card-accent: #8a6b2a">
+        <article class="service-card service-card--growth" style="--card-accent: #8a6b2a">
           <div class="service-card-img">
-            <%- include('partials/img', { src: assets.nayabPromoVertical, fallback: assets.nayabIntroBanner, alt: '', className: '' }) %>
+            <%- include('partials/img', { src: assets.serviceGrowth, fallback: assets.serviceGrowthFallback, alt: 'Creative growth and personal development', className: 'service-card-photo' }) %>
+            <span class="service-card-tag">Growth &amp; purpose</span>
           </div>
           <div class="service-card-body">
             <h3>Personal Growth</h3>
