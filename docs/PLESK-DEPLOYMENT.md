@@ -16,10 +16,20 @@ Point the domain to your hosting and use nameservers:
 In Plesk → Git, connect repository:
 
 ```
-https://github.com/bhootinsk/nayab.life.git
+https://github.com/Eazyjungle-Webhosting-and-Services-Inc/nayab.life.git
 ```
 
-Deploy to the application root (e.g. `httpdocs` or a subdomain folder).
+Branch: `main`
+
+**Important:** The Node.js **Application root** must be the folder that receives the Git deploy (where `app.js` lives). If Git clones to a separate directory, enable **Deploy from repository** to copy files into the application root, or set Application root to the Git checkout path.
+
+After pull + deploy, verify:
+
+```
+https://nayab.life/deploy-check
+```
+
+You should see `"fullyDeployed": true`, `"assetsVersion": "10"`, and `"pillarsSectionInTemplate": true`. If not, the app is still running an old copy of the files.
 
 **Option B — Upload**
 
@@ -104,4 +114,5 @@ Back up regularly:
 | 502 Bad Gateway    | Restart Node.js app; verify `npm install` completed   |
 | Upload fails       | Check `uploads/` permissions                          |
 | CMS changes lost   | Ensure `content/` and `data/` are writable            |
-| Session logout     | Set `SESSION_SECRET`; enable SSL in production        |
+| CSS/images old after Git pull | Git clone path ≠ Node **Application root** — redeploy or align paths; visit `/deploy-check` |
+| Still on assets v9            | Pull did not update app folder; run Git **Deploy** then **Restart App**                     |

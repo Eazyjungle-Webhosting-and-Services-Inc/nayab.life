@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -43,6 +44,36 @@ app.use(
 const publicDir = path.join(__dirname, 'public');
 mountPublicStatic(app, publicDir);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+/** Verify deploy reached the Node application root (not just the Git clone folder). */
+app.get('/deploy-check', (_req, res) => {
+  const root = __dirname;
+  let assets = {};
+  try {
+    assets = JSON.parse(fs.readFileSync(path.join(root, 'data', 'assets.json'), 'utf8'));
+  } catch (e) {
+    return res.status(500).json({ ok: false, error: 'assets.json unreadable', detail: e.message });
+  }
+  let homeSnippet = '';
+  try {
+    homeSnippet = fs.readFileSync(path.join(root, 'views', 'home.ejs'), 'utf8');
+  } catch (e) {
+    return res.status(500).json({ ok: false, error: 'home.ejs unreadable', detail: e.message });
+  }
+  const pillarFile = path.join(root, 'public', 'images', 'pillars', 'collaborative-therapy.jpg');
+  const payload = {
+    ok: true,
+    deployMarker: 'pillars-v10',
+    assetsVersion: assets.version || null,
+    therapySessionPath: assets.therapySession || null,
+    pillarsSectionInTemplate: homeSnippet.includes('pillars-section'),
+    pillarImageOnDisk: fs.existsSync(pillarFile),
+    appRoot: root,
+    nodeEnv: process.env.NODE_ENV || 'development',
+  };
+  payload.fullyDeployed = payload.assetsVersion === '10' && payload.pillarsSectionInTemplate && payload.pillarImageOnDisk;
+  res.json(payload);
+});
 
 app.use((req, res, next) => {
   res.locals.currentPath = req.path;
