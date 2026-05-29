@@ -63,7 +63,7 @@ app.get('/deploy-check', (_req, res) => {
   const pillarFile = path.join(root, 'public', 'images', 'pillars', 'collaborative-therapy.jpg');
   const payload = {
     ok: true,
-    deployMarker: 'pillars-v10',
+    deployMarker: 'pillars-v11',
     assetsVersion: assets.version || null,
     therapySessionPath: assets.therapySession || null,
     pillarsSectionInTemplate: homeSnippet.includes('pillars-section'),
@@ -71,7 +71,7 @@ app.get('/deploy-check', (_req, res) => {
     appRoot: root,
     nodeEnv: process.env.NODE_ENV || 'development',
   };
-  payload.fullyDeployed = payload.assetsVersion === '10' && payload.pillarsSectionInTemplate && payload.pillarImageOnDisk;
+  payload.fullyDeployed = payload.assetsVersion === '11' && payload.pillarsSectionInTemplate && payload.pillarImageOnDisk;
   res.json(payload);
 });
 
