@@ -1,5 +1,5 @@
 {
-  "version": "18",
+  "version": "19",
   "heroPortrait": "/images/custom/nayab-intro-banner.jpeg",
   "heroPortraitFallback": "https://voiceawareness.ca/wp-content/uploads/2025/12/Untitled-design-12-1.webp",
   "nayabIntroBanner": "/images/custom/nayab-intro-banner.jpeg",
@@ -16,7 +16,7 @@
   "logo": "/images/custom/branding-icon.jpeg",
   "logoFallback": "/images/logo-voice.webp",
   "defaultPost": "/images/custom/nayab-intro-banner.jpeg",
-  "aboutBanner": "/images/custom/nayab-intro-banner.jpeg",
+  "aboutBanner": "/images/pillars/emotional-wellness.jpg",
   "servicesBanner": "/images/pillars/collaborative-therapy.jpg",
   "approachBanner": "/images/custom/healing-growth-icon.jpeg",
   "serviceStress": "/images/services/stress-management.jpg",
