@@ -12,10 +12,22 @@
     bannerClass: 'page-banner--about'
   }) %>
 
-  <section class="section">
-    <div class="container content-grid">
-      <div class="content-main prose">
-        <%- page.html || '' %>
+  <section class="section about-main">
+    <div class="container content-grid about-content-grid">
+      <div class="content-main about-content-main">
+        <div class="prose">
+          <%- page.html || '' %>
+        </div>
+        <div class="about-closing">
+          <figure class="about-closing-icon">
+            <%- include('partials/img', {
+              src: assets.healingGrowthIcon,
+              alt: 'Healing and personal growth',
+              className: 'healing-icon-img'
+            }) %>
+          </figure>
+          <p class="lead about-closing-text">You don't have to go through it alone. I'm here to walk with you.</p>
+        </div>
       </div>
       <aside class="sidebar">
         <div class="sidebar-card sidebar-photo">
@@ -44,19 +56,6 @@
           </ul>
         </div>
       </aside>
-    </div>
-  </section>
-
-  <section class="section alt">
-    <div class="container center">
-      <figure class="healing-icon-large">
-        <%- include('partials/img', {
-          src: assets.healingGrowthIcon,
-          alt: 'Healing and personal growth',
-          className: 'healing-icon-img'
-        }) %>
-      </figure>
-      <p class="lead">You don't have to go through it alone. I'm here to walk with you.</p>
     </div>
   </section>
 

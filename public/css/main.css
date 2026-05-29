@@ -878,8 +878,43 @@ a:hover {
   margin-top: 0;
 }
 
-.page-about .section:first-of-type {
+.page-about .about-main {
   padding-top: 2.5rem;
+}
+
+.page-about .about-content-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-width: 0;
+}
+
+.page-about .about-closing {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+  max-width: 28rem;
+  align-self: flex-start;
+}
+
+.page-about .about-closing-icon {
+  margin: 0;
+  flex-shrink: 0;
+  width: 88px;
+}
+
+.page-about .about-closing .healing-icon-img {
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+}
+
+.page-about .about-closing-text {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--color-text);
 }
 
 /* Gallery */
