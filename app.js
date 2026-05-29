@@ -64,7 +64,7 @@ app.get('/deploy-check', (_req, res) => {
   const stressFile = path.join(root, 'public', 'images', 'services', 'stress-management.jpg');
   const payload = {
     ok: true,
-    deployMarker: 'services-v16',
+    deployMarker: 'services-v17',
     assetsVersion: assets.version || null,
     therapySessionPath: assets.therapySession || null,
     pillarsSectionInTemplate: homeSnippet.includes('pillars-section'),
@@ -75,7 +75,7 @@ app.get('/deploy-check', (_req, res) => {
     nodeEnv: process.env.NODE_ENV || 'development',
   };
   payload.fullyDeployed =
-    payload.assetsVersion === '16' &&
+    payload.assetsVersion === '17' &&
     payload.pillarsSectionInTemplate &&
     payload.areasOfFocusInTemplate &&
     payload.pillarImageOnDisk &&
